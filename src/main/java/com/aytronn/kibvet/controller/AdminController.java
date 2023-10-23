@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AdminController {
 
+    // Méthodes GET, POST, DELETE, PUT: Accès limité au rôle ADMIN
 
     @GetMapping("/api/v1/admin")
     public String getTest() {

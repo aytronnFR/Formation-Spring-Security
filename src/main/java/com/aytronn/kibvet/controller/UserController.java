@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
+    // Méthode GET: Accès limité au rôle USER.
+    //Méthodes POST, DELETE, PUT: Accès limité au rôle EDITOR.
 
+    
     @GetMapping("/api/v1/user")
     public String getTest() {
         return "GET:: user controller";
