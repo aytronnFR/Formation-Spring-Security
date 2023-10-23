@@ -1,0 +1,45 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew clean build --stacktrace
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build Docker image
+        run: |
+          REPO_LOWER=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
+          docker build . -t ghcr.io/$REPO_LOWER/kibvet:${{ github.ref_name }}
+
+      - name: Push Docker image to GitHub Packages
+        run: |
+          REPO_LOWER=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
+          docker push ghcr.io/$REPO_LOWER/kibvet:${{ github.ref_name }}

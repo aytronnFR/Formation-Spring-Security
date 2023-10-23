@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SujetTp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="HIDE_BANNER" value="true" />
+    <module name="SujetTP.main" />
+    <projectPathOnTarget name="projectPathOnTarget" value="/root/kitvet" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.aytronn.kibvet.SujetTpApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
