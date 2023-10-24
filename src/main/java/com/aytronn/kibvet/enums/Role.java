@@ -8,29 +8,24 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 public enum Role {
     ADMIN(
-            Set.of(
-                "test:get",
-                "test:post",
-                "test:delete",
-                "test:put",
-                "admin:get",
-                "admin:post",
-                "admin:delete",
-                "admin:put"
-
-            )
+        Set.of(
+            "admin:get",
+            "admin:post",
+            "admin:delete",
+            "admin:put"
+        )
     ),
     EDITOR(
-            Set.of(
-                "test:post",
-                "test:put",
-                "test:get"
-            )
+        Set.of(
+            "user:post",
+            "user:put",
+            "user:get"
+        )
     ),
     USER(
-            Set.of(
-                "test:get"
-            )
+        Set.of(
+            "user:get"
+        )
     );
 
 
