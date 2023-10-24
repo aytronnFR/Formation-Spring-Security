@@ -35,9 +35,10 @@ spring:
   main:
     allow-bean-definition-overriding: true
   datasource:
-    url: ""
-    username: ""
-    password: ""
+    url: ""jdbc:p6spy:postgresql://postgis.aytronn.com/
+kibvet""
+    username: "formation"
+    password: "formation"
     driverClassName: com.p6spy.engine.spy.P6SpyDriver
   jpa:
     open-in-view: true
