@@ -13,6 +13,7 @@ public enum Role {
             "admin:post",
             "admin:delete",
             "admin:put"
+      
         )
     ),
     EDITOR(
@@ -25,6 +26,7 @@ public enum Role {
     USER(
         Set.of(
             "user:get"
+            // "auth:put"
         )
     );
 

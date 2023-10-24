@@ -8,6 +8,7 @@ import com.aytronn.kibvet.service.AuthenticationService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +37,7 @@ public class AuthController {
     }
 
     @PutMapping("/role")
+    @PreAuthorize("hasAuthority('auth:put')")
     public LocalUser updateRole(HttpServletRequest request, UpdateRoleDto updateRole){
         return getAuthenticationService().updaterole(request, updateRole);
 
